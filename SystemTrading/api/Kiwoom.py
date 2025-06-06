@@ -120,7 +120,7 @@ class Kiwoom(QAxWidget):
 
         #예수금 얻어오기 받는 부분
         elif rqname == "opw00001_req":
-            deposit = self.dynamicCall("GetCommData(QString, QString, int, QString", trcode, rqname, 0, "주문가능금액")
+            deposit = self.dynamicCall("GetCommData(QString, QString, int, QString)", trcode, rqname, 0, "주문가능금액")
             self.tr_data = int(deposit)
             print(self.tr_data)
 
@@ -129,12 +129,12 @@ class Kiwoom(QAxWidget):
 
     #조회 대상 계좌의 예수금을 얻어 오는 함수
     def get_deposit(self):
-        self.dynamicCall("SetInputValue(QString, QString","계좌번호", self.account_number)
-        self.dynamicCall("SetInputValue(QString, QString", "비밀번호입력매체구분", "00")
-        self.dynamicCall("SetInputValue(QString, QString",  "조회구분", "2")
-        self.dynamicCall("CommRqData(QString, QString, int, QString","opw00001_req", "opw00001", 0, "0002")
+        self.dynamicCall("SetInputValue(QString, QString)", "계좌번호", self.account_number)
+        self.dynamicCall("SetInputValue(QString, QString)", "비밀번호입력매체구분", "00")
+        self.dynamicCall("SetInputValue(QString, QString)", "조회구분", "2")
+        self.dynamicCall("CommRqData(QString, QString, int, QString)", "opw00001_req", "opw00001", 0, "0002")
 
-        self.tr_event_loop.exec()#응답을 대기할 수 있는 상태로 만듬
+        self.tr_event_loop.exec_()
         return self.tr_data
-            
+
 

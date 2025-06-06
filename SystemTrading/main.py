@@ -3,11 +3,13 @@ import sys
 
 app = QApplication(sys.argv)
 kiwoom = Kiwoom()
+
 #kiwoom.get_account_number()
 
+#df = kiwoom.get_price_data("005930_AL")
+#print(df)
 
-df = kiwoom.get_price_data("005930_AL")
-print(df)
+deposit = kiwoom.get_deposit()
 
 '''kospi_code_list = kiwoom.get_code_list_by_market("0")
 print(len(kospi_code_list))
