@@ -11,6 +11,10 @@ kiwoom = Kiwoom()
 
 deposit = kiwoom.get_deposit()
 
+order_result = kiwoom.send_order('send_buy_order', '1001', 1, '005930', 1, 60000, '00')
+
+print(order_result)
+
 '''kospi_code_list = kiwoom.get_code_list_by_market("0")
 print(len(kospi_code_list))
 
